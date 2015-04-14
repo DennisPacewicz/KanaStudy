@@ -12,13 +12,15 @@ import java.util.HashMap;
  * Created by dennis on 13/04/15.
  */
 public class QuizSetupActivity extends Activity {
+    int quiz = 0;
     public void onGetQuiz(View view) {
         // get the Quiz view
         Intent getQuizIntent = new Intent(this, QuizActivity.class);
 
-        final int result = 1;
+        getQuizIntent.putExtra("QuizType", quiz);
 
         startActivity(getQuizIntent);
+        //startActivityForResult(getQuizIntent, result);
 
     }
     @Override
@@ -38,11 +40,13 @@ public class QuizSetupActivity extends Activity {
             case R.id.radio_hiragana:
                 if (checked)
                     // radio button hiragana selected
-
+                    quiz = 0;
                     break;
+
             case R.id.radio_katakana:
                 if (checked)
                     // radio button katakana selected
+                    quiz = 1;
                     break;
         }
     }
