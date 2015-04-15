@@ -20,7 +20,10 @@ public class QuizActivity extends Activity {
     private static Map<String, String[]> kanaMap = com.example.dennis.kanastudy.kanaMap.getMap();
     protected int quizType;
     private Button b1, b2, b3, b4;
+    private TextView score;
     private TextView question;
+    private int attempted = 0;
+    private int correctAnswers = 0;
     private static Toast answerPrompt;
     private String ans;
     protected Object[] keys;
@@ -41,6 +44,7 @@ public class QuizActivity extends Activity {
         b3 = (Button)findViewById(R.id.option3);
         b4 = (Button)findViewById(R.id.option4);
         question = (TextView)findViewById(R.id.questionLabel);
+        score = (TextView)findViewById(R.id.scoreLabel);
 
         //load keys
         keys = kanaMap.keySet().toArray();
@@ -61,6 +65,7 @@ public class QuizActivity extends Activity {
         b2.setText(labels[1]);
         b3.setText(labels[2]);
         b4.setText(labels[3]);
+        score.setText(correctAnswers + " / " + attempted);
     }
     public void onAnswer(View view) {
         if (answerPrompt != null) // if there is a response being shown from previous question...
@@ -95,9 +100,12 @@ public class QuizActivity extends Activity {
 
         if(correct){
             promptText = "Correct! :3";
+            correctAnswers = correctAnswers + 1;
         } else {
             promptText = "False. :(";
         }
+
+        attempted = attempted + 1;
         answerPrompt = Toast.makeText(getBaseContext(), promptText, Toast.LENGTH_SHORT);
         answerPrompt.show();
         newQuestion();

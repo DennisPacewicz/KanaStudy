@@ -60,8 +60,13 @@ public class MainActivity extends ActionBarActivity {
     public void onGetAbout(View view) {
         // get the About view
         Intent getAboutIntent = new Intent(this, AboutActivity.class);
-
         startActivity(getAboutIntent);
+    }
+
+    public void onGetGuide(View view) {
+        // get the Guide view
+        Intent getGuideIntent = new Intent(this, GuideActivity.class);
+        startActivity(getGuideIntent);
     }
 
 
