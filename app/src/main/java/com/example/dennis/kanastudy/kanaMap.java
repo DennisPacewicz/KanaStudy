@@ -10,11 +10,11 @@ public class kanaMap {
     public static HashMap<String, String[]> getMap(){
         //gets the map
         kana = new HashMap<String, String[]>();
-        kana.put("a", new String[]{"あ", "ア"});
-        kana.put("i", new String[] { "い", "イ"});
-        kana.put("u", new String[] { "う", "ウ"});
-        kana.put("e", new String[] { "え", "エ"});
-        kana.put("o", new String[] { "お", "オ"});
+        kana.put("a", new String[] {"あ", "ア"});
+        kana.put("i", new String[] {"い", "イ"});
+        kana.put("u", new String[] {"う", "ウ"});
+        kana.put("e", new String[] {"え", "エ"});
+        kana.put("o", new String[] {"お", "オ"});
         kana.put("ka", new String[]{"か", "カ"});
         kana.put("ki", new String[]{"き", "キ"});
         kana.put("ku", new String[]{"く", "ク"});
@@ -57,7 +57,7 @@ public class kanaMap {
         kana.put("wi", new String[]{"ゐ", "ヰ"});
         kana.put("we", new String[]{"ゑ", "ヱ"});
         kana.put("wo", new String[]{"を", "ヲ"});
-        kana.put("n", new String[]{"ん", "ン"});
+        kana.put("n", new String[] {"ん", "ン"});
         return kana;
     }
 }
