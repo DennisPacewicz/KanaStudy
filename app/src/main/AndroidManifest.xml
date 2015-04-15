@@ -25,6 +25,10 @@
             android:label="Quiz setup"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
+        <activity android:name=".GuideActivity"
+            android:label="Guide/Study page"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity android:name=".AboutActivity"
             android:label="About page"
             android:theme="@style/noAnimTheme"
