@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * Created by dennis on 17/04/15.
  */
 public class QuizActivity2 extends Activity {
-    private static Map<String, String[]> kanaMap = com.example.dennis.kanastudy.kanaMap.getMap();
+    private Map<String, String[]> kanaMap;
     protected int quizType;
     private TextView score;
     private TextView question;
@@ -43,6 +43,9 @@ public class QuizActivity2 extends Activity {
         score = (TextView)findViewById(R.id.scoreLabel);
         editText = (EditText) findViewById(R.id.editText);
 
+        //load map
+        kanaMap kana = new kanaMap(this.getApplicationContext());
+        kanaMap = kana.getMap();
         //load keys
         keys = kanaMap.keySet().toArray();
 

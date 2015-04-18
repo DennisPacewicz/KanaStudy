@@ -19,7 +19,7 @@ public class AboutActivity extends Activity{
 
     }
     public void goToGit (View view) {
-        goToUrl ( "https://github.com/DennisPacewicz/");
+        goToUrl ( "https://github.com/DennisPacewicz/KanaStudy");
     }
     private void goToUrl (String url) {
         Uri uriUrl = Uri.parse(url);

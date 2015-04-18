@@ -1,6 +1,7 @@
 package com.example.dennis.kanastudy;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ import java.util.Random;
  * Created by dennis on 13/04/15.
  */
 public class QuizActivity extends Activity {
-    private static Map<String, String[]> kanaMap = com.example.dennis.kanastudy.kanaMap.getMap();
+    private Map<String, String[]> kanaMap;
     protected int quizType;
     private Button b1, b2, b3, b4;
     private TextView score;
@@ -46,6 +47,9 @@ public class QuizActivity extends Activity {
         question = (TextView)findViewById(R.id.questionLabel);
         score = (TextView)findViewById(R.id.scoreLabel);
 
+        //load map
+        kanaMap kana = new kanaMap(this.getApplicationContext());
+        kanaMap = kana.getMap();
         //load keys
         keys = kanaMap.keySet().toArray();
 
@@ -131,7 +135,7 @@ public class QuizActivity extends Activity {
         return sym[quizType];
     }
 
-    private static int randKey() {
+    private int randKey() {
         Random rand = new Random();
         return rand.nextInt(kanaMap.size());
     }
