@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 
-import java.util.Map;
-import java.util.HashMap;
 /**
  * Created by dennis on 13/04/15.
  */
@@ -22,6 +20,13 @@ public class QuizSetupActivity extends Activity {
         startActivity(getQuizIntent);
         //startActivityForResult(getQuizIntent, result);
 
+    }
+    public void onGetQuiz2(View view) {
+        Intent getQuiz2Intent = new Intent(this, QuizActivity2.class);
+
+        getQuiz2Intent.putExtra("QuizType", quiz);
+
+        startActivity(getQuiz2Intent);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +55,6 @@ public class QuizSetupActivity extends Activity {
                     break;
         }
     }
+
 }
 
