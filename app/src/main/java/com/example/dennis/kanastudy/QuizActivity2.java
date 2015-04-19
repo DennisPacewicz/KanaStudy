@@ -27,6 +27,7 @@ public class QuizActivity2 extends Activity {
     private EditText editText;
     private static Toast answerPrompt;
     private String ans;
+    private String prevAns = "";
     protected Object[] keys;
 
     @Override
@@ -53,7 +54,10 @@ public class QuizActivity2 extends Activity {
     public void newQuestion(){
         // get random syllable for the question
         Random rand = new Random();
-        ans = keys[rand.nextInt(kanaMap.size())].toString();
+        do {
+            ans = keys[rand.nextInt(kanaMap.size())].toString();
+        } while (prevAns.equals(ans));
+        prevAns = ans;
 
         question.setText(kanaMap.get(ans)[quizType]);
 

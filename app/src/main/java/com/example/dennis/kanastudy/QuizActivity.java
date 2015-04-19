@@ -27,6 +27,7 @@ public class QuizActivity extends Activity {
     private int correctAnswers = 0;
     private static Toast answerPrompt;
     private String ans;
+    private String prevAns = "";
     protected Object[] keys;
 
 
@@ -58,7 +59,12 @@ public class QuizActivity extends Activity {
     public void newQuestion(){
         // get random syllable for the question
         Random rand = new Random();
-        ans = keys[rand.nextInt(kanaMap.size())].toString();
+        // make sure the same question isn't generated twice in a row
+        do {
+            ans = keys[rand.nextInt(kanaMap.size())].toString();
+        } while (prevAns.equals(ans));
+        prevAns = ans;
+
         question.setText(ans);
 
         String[] labels = getButtonLabels(ans, 4); //get a set of answers containing the correct answer
