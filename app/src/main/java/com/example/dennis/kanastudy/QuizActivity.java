@@ -48,8 +48,7 @@ public class QuizActivity extends Activity {
         score = (TextView)findViewById(R.id.scoreLabel);
 
         //load map
-        kanaMap kana = new kanaMap(this.getApplicationContext());
-        kanaMap = kana.getMap();
+        kanaMap = new kanaMap(this.getApplicationContext()).getMap();
         //load keys
         keys = kanaMap.keySet().toArray();
 

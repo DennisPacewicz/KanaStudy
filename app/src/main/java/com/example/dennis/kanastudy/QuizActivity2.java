@@ -44,8 +44,7 @@ public class QuizActivity2 extends Activity {
         editText = (EditText) findViewById(R.id.editText);
 
         //load map
-        kanaMap kana = new kanaMap(this.getApplicationContext());
-        kanaMap = kana.getMap();
+        kanaMap = new kanaMap(this.getApplicationContext()).getMap();
         //load keys
         keys = kanaMap.keySet().toArray();
 
