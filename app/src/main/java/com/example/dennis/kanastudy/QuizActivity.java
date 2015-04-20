@@ -108,7 +108,7 @@ public class QuizActivity extends Activity {
         }
 
         if(correct){
-            promptText = "Correct! :3";
+            promptText = "Correct! :)";
             correctAnswers = correctAnswers + 1;
         } else {
             promptText = "False. :(";

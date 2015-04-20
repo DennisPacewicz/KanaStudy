@@ -16,6 +16,7 @@ public class GuideActivity extends Activity {
     private String[] hiragana;
     ListView listView1;
     ListView listView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,8 @@ public class GuideActivity extends Activity {
         listView1 = (ListView)findViewById(R.id.tab1list);
         listView2 = (ListView)findViewById(R.id.tab2list);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_2, android.R.id.text2, hiragana);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_2, android.R.id.text2, katakana);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_text, hiragana);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, R.layout.list_text, katakana);
 
         listView1.setAdapter(adapter);
         listView2.setAdapter(adapter2);
