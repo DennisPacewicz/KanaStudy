@@ -3,6 +3,7 @@ package com.example.dennis.kanastudy;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TabHost;
 
@@ -14,8 +15,8 @@ import java.util.Map;
 public class GuideActivity extends Activity {
     private String[] katakana;
     private String[] hiragana;
-    ListView listView1;
-    ListView listView2;
+    GridView listView1;
+    GridView listView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class GuideActivity extends Activity {
         katakana = k.getKatakanaGuide();
 
 
-        listView1 = (ListView)findViewById(R.id.tab1list);
-        listView2 = (ListView)findViewById(R.id.tab2list);
+        listView1 = (GridView)findViewById(R.id.tab1list);
+        listView2 = (GridView)findViewById(R.id.tab2list);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_text, hiragana);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, R.layout.list_text, katakana);

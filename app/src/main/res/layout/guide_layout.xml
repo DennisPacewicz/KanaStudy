@@ -3,13 +3,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent" android:layout_height="fill_parent"
-    android:layout_gravity="right|center_vertical"
-    android:layout_marginBottom="40dp">
+    android:layout_gravity="bottom">
 
     <TabHost android:id="@+id/tabHost"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent">
         <LinearLayout android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -18,26 +16,34 @@
                 android:layout_height="fill_parent" />
             <FrameLayout android:id="@android:id/tabcontent"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:orientation="vertical"
                     android:id="@+id/tab1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
-                    <ListView
+                    <GridView
                         android:id="@+id/tab1list"
+                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"></ListView>
+                        android:layout_height="wrap_content"
+                        android:numColumns="auto_fit"
+                        android:columnWidth="120dp"
+                        android:stretchMode="columnWidth"></GridView>
                     </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
                     android:id="@+id/tab2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
-                    <ListView
+                    <GridView
                         android:id="@+id/tab2list"
+                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"></ListView>
+                        android:layout_height="wrap_content"
+                        android:numColumns="auto_fit"
+                        android:columnWidth="120dp"
+                        android:stretchMode="columnWidth"></GridView>
                     </LinearLayout>
 
             </FrameLayout>
