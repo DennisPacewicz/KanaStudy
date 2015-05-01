@@ -20,6 +20,7 @@ import java.util.Random;
 public class QuizActivity extends Activity {
     private Map<String, String[]> kanaMap;
     protected int quizType;
+    protected boolean easy;
     private Button b1, b2, b3, b4;
     private TextView score;
     private TextView question;
@@ -39,6 +40,7 @@ public class QuizActivity extends Activity {
 
         Intent activityQuizType = getIntent();
         quizType = activityQuizType.getExtras().getInt("QuizType");
+        easy = activityQuizType.getExtras().getBoolean("EasyMode");
 
         //get buttons and question label from the view
         b1 = (Button)findViewById(R.id.option1);
@@ -74,7 +76,11 @@ public class QuizActivity extends Activity {
         b2.setText(labels[1]);
         b3.setText(labels[2]);
         b4.setText(labels[3]);
-        score.setText(correctAnswers + " / " + attempted);
+        if(easy){
+            score.setText("");
+        } else {
+            score.setText(correctAnswers + " / " + attempted);
+        }
     }
     public void onAnswer(View view) {
         if (answerPrompt != null) // if there is a response being shown from previous question...
@@ -106,18 +112,22 @@ public class QuizActivity extends Activity {
                 }
                 break;
         }
-
-        if(correct){
-            promptText = "Correct! :)";
-            correctAnswers = correctAnswers + 1;
-        } else {
-            promptText = "False. :(";
+        if(!easy) { //regular mode
+            if(correct){
+                promptText = "Correct! :)";
+                correctAnswers = correctAnswers + 1;
+            } else {
+                promptText = "False. :(";
+            }
+            attempted = attempted + 1;
+            answerPrompt = Toast.makeText(getBaseContext(), promptText, Toast.LENGTH_SHORT);
+            answerPrompt.show();
+            newQuestion();
+        } else { //easy mode
+            if(correct){
+                newQuestion();
+            }
         }
-
-        attempted = attempted + 1;
-        answerPrompt = Toast.makeText(getBaseContext(), promptText, Toast.LENGTH_SHORT);
-        answerPrompt.show();
-        newQuestion();
     }
 
     private String[] getButtonLabels(String ans, int num) {
