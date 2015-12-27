@@ -37,7 +37,7 @@ public class GuideActivity extends Activity {
         spec.setIndicator("Katakana");
         host.addTab(spec);
 
-        kanaMap k = new kanaMap(this.getApplicationContext());
+        kanaMap k = new kanaMap(this.getApplicationContext(), false);
         hiragana = k.getHiraganaGuide();
         katakana = k.getKatakanaGuide();
 

@@ -7,7 +7,7 @@
     android:layout_marginTop="80dp">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="332dp"
+        android:layout_width="match_parent" android:layout_height="414dp"
         android:layout_gravity="right|center_vertical"
         android:layout_marginBottom="40dp"
         android:paddingBottom="20dp">
@@ -60,7 +60,7 @@
             android:onClick="onGetQuiz"
             android:layout_below="@+id/quiz_type_selection"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="52dp" />
+            android:layout_marginTop="92dp" />
 
         <Button
             android:layout_width="300dp"
@@ -76,7 +76,7 @@
             android:onClick="onGetQuiz2"
             android:layout_below="@+id/quiz_type_selection"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="134dp"/>
+            android:layout_marginTop="164dp"/>
 
 
         <TextView
@@ -95,14 +95,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switch1"
-            android:text="Easy mode: "
+            android:text="No-fail mode: "
             android:textSize="24dp"
             android:layout_below="@+id/quiz_type_selection"
             android:layout_alignLeft="@+id/start_quiz"
             android:layout_alignStart="@+id/start_quiz"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#555"
-            android:onClick="onSwitchMode"/>
+            android:onClick="onSwitchEasy"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch2"
+            android:text="Include voiced kana: "
+            android:textSize="24dp"
+            android:layout_below="@+id/quiz_type_selection"
+            android:layout_alignLeft="@+id/start_quiz"
+            android:layout_alignStart="@+id/start_quiz"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#555"
+            android:onClick="onSwitchVoiced"
+            android:layout_marginTop="40dp" />
 
     </RelativeLayout>
 </FrameLayout>

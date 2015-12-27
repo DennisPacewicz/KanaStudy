@@ -21,7 +21,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/appTitle"
         android:layout_marginTop="70dp"
@@ -54,16 +54,18 @@
             android:clickable="true" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hey there! Thanks for trying out my app! I hope it serves useful to you. Just a warning, though: this is my first Android app, written in a week, so expect some bugs."
+            android:layout_width="fill_parent"
+            android:layout_height="103dp"
             android:id="@+id/textView3"
-            android:layout_gravity="center_horizontal"
             android:textColor="#FFF"
             android:textSize="20dp"
             android:lines="8"
             android:padding="10dp"
-            android:layout_marginTop="10sp" />
+            android:layout_marginTop="10sp"
+            android:text="this is a test build. please let me know if you find any issues or bugs."
+            android:layout_margin="10dp"
+            android:singleLine="false"
+            android:phoneNumber="false" />
     </LinearLayout>
 
 </RelativeLayout>

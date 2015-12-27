@@ -21,6 +21,7 @@ public class QuizActivity2 extends Activity {
     private Map<String, String[]> kanaMap;
     protected int quizType;
     protected boolean easy;
+    protected boolean voiced;
     private TextView score;
     private TextView question;
     private int attempted = 0;
@@ -40,6 +41,7 @@ public class QuizActivity2 extends Activity {
         Intent activityQuizType = getIntent();
         quizType = activityQuizType.getExtras().getInt("QuizType");
         easy = activityQuizType.getExtras().getBoolean("EasyMode");
+        voiced = activityQuizType.getExtras().getBoolean("IncludeVoiced");
 
         //get buttons and question label from the view
         question = (TextView)findViewById(R.id.questionLabel);
@@ -47,7 +49,7 @@ public class QuizActivity2 extends Activity {
         editText = (EditText) findViewById(R.id.editText);
 
         //load map
-        kanaMap = new kanaMap(this.getApplicationContext()).getMap();
+        kanaMap = new kanaMap(this.getApplicationContext(), voiced).getMap();
         //load keys
         keys = kanaMap.keySet().toArray();
 

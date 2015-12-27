@@ -13,12 +13,20 @@ import android.widget.Switch;
 public class QuizSetupActivity extends Activity {
     int quiz = 0;
     boolean easymode = false;
+    boolean voiced = false;
 
-    public void onSwitchMode(View view){
-        if(easymode == false){
+    public void onSwitchEasy(View view){
+        if(!easymode){
             easymode = true;
         } else {
             easymode = false;
+        }
+    }
+    public void onSwitchVoiced(View view){
+        if(!voiced){
+            voiced = true;
+        } else {
+            voiced = false;
         }
     }
     public void onGetQuiz(View view) {
@@ -27,6 +35,7 @@ public class QuizSetupActivity extends Activity {
 
         getQuizIntent.putExtra("QuizType", quiz);
         getQuizIntent.putExtra("EasyMode", easymode);
+        getQuizIntent.putExtra("IncludeVoiced", voiced);
 
         startActivity(getQuizIntent);
         //startActivityForResult(getQuizIntent, result);
@@ -37,6 +46,7 @@ public class QuizSetupActivity extends Activity {
 
         getQuiz2Intent.putExtra("QuizType", quiz);
         getQuiz2Intent.putExtra("EasyMode", easymode);
+        getQuiz2Intent.putExtra("IncludeVoiced", voiced);
 
         startActivity(getQuiz2Intent);
     }
