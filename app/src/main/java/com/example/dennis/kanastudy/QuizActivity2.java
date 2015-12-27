@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 public class QuizActivity2 extends Activity {
     private Map<String, String[]> kanaMap;
     protected int quizType;
+    protected boolean easy;
     private TextView score;
     private TextView question;
     private int attempted = 0;
@@ -38,6 +39,7 @@ public class QuizActivity2 extends Activity {
 
         Intent activityQuizType = getIntent();
         quizType = activityQuizType.getExtras().getInt("QuizType");
+        easy = activityQuizType.getExtras().getBoolean("EasyMode");
 
         //get buttons and question label from the view
         question = (TextView)findViewById(R.id.questionLabel);
@@ -61,7 +63,11 @@ public class QuizActivity2 extends Activity {
 
         question.setText(kanaMap.get(ans)[quizType]);
 
-        score.setText(correctAnswers + " / " + attempted);
+        if(easy){
+            score.setText("");
+        } else {
+            score.setText(correctAnswers + " / " + attempted);
+        }
 
 
         editText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
@@ -97,17 +103,22 @@ public class QuizActivity2 extends Activity {
         }
 
 
-        if(correct){
-            promptText = "Correct! :)";
-            correctAnswers = correctAnswers + 1;
-        } else {
-            promptText = "False. :(";
+        if(!easy) { //regular mode
+            if(correct){
+                promptText = "Correct! :)";
+                correctAnswers = correctAnswers + 1;
+            } else {
+                promptText = "False. :(";
+            }
+            attempted = attempted + 1;
+            answerPrompt = Toast.makeText(getBaseContext(), promptText, Toast.LENGTH_SHORT);
+            answerPrompt.show();
+            newQuestion();
+        } else { //easy mode
+            if(correct){
+                newQuestion();
+            }
         }
-
-        attempted = attempted + 1;
-        answerPrompt = Toast.makeText(getBaseContext(), promptText, Toast.LENGTH_SHORT);
-        answerPrompt.show();
-        newQuestion();
     }
 
 }
