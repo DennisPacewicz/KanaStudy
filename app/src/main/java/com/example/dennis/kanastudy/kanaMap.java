@@ -55,7 +55,7 @@ public class kanaMap {
             }
         } catch (Exception ex) {
             // file reading error
-            System.out.println("kana map not loaded");
+            System.out.println("kana map load error");
         }
         if(voiced){
             try {
